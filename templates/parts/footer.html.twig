@@ -1,0 +1,28 @@
+<footer class="footer" style="background-color: black; color: white; margin-top: 50px; padding:20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Contactez-nous</h5>
+                <ul class="list-unstyled">
+                    <li>Email: dissi@essci.fr</li>
+                    <li>Téléphone: 0234567890</li>
+                    <li>Adresse: Campus de l'Espace, Vernon, France</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h5>Liens rapides</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{path('app_home')}} ">Accueil</a></li>
+                    <li><a href="{{ path('app_articles_index') }}" >Liste d'articles</a></li>
+                    <li><a href="{{path('app_articles_new')}} ">Créer un article</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">© {{ "now"|date("Y") }} Quentin & Mohamed. Tous droits réservés.</p>
+            </div>
+        </div>
+    </div>
+</footer>

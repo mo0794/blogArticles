@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<div class="container mt-4">
+    <div class="row">
+        {% for article in articles %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="{{ asset('images/articles/') ~ article.image }}" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title flex-fill">{{ article.titre }}</h5>
+                        <p class="card-text flex-fill">{{ article.contenu | length > 10 ? article.contenu | slice(0, 10) ~ '...' : article.contenu }}</p>
+                        <a href="{{ path('app_articles_show', {'id': article.id}) }}" class="btn btn-primary mt-auto">Lire plus ...</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

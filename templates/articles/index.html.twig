@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles index{% endblock %}
+
+{% block body %}
+ <h1 class="navigation d-flex justify-content-center mb-4">Articles</h1>
+
+
+<div class="row">
+    {% for article in articles %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <img src="{{ asset('images/articles/' ~ article.image) }}" class="card-img-top" alt="{{ article.titre }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.titre }}</h5>
+                    <p class="card-text">{{ article.contenu }}</p>
+                    <a href="{{ path('app_articles_show', {'id': article.id}) }}" class="btn btn-primary mt-auto">Voir l'article</a>
+                    <!-- Supprimer le lien "Voir plus" -->
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="col">
+            <p>Pas d'articles disponibles</p>
+        </div>
+    {% endfor %}
+</div>
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('app_articles_new') }}" class="btn btn-success">Créer un nouvel article</a>
+{% endif %}
+
+<div class="navigation d-flex justify-content-center">
+    {{ knp_pagination_render(articles) }}
+</div>
+
+
+{% endblock %}
